@@ -14,6 +14,9 @@ axios({
 
             const paraElem = document.createElement("p");
             paraElem.innerHTML = `${rawJSONDataOfLog.text}, Type: ${rawJSONDataOfLog.type}, Client: ${rawJSONDataOfLog.clientName}`;
+            if (rawJSONDataOfLog.type == "error") {
+              paraElem.style.color = "red"
+            }
             document.getElementById("logsList").appendChild(paraElem);
             loopIndex++
         })
