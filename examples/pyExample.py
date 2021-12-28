@@ -16,7 +16,7 @@ class Logger:
             'clientName': os.environ['CLIENT_NAME']
         }
 
-        result = requests.post("{}/newLog".format(os.environ['LOGGER_URL']), json=log)
+        result = requests.post("{}/newLog".format(os.environ['LOGGER_URL']), json=log, headers={'Content-Type': 'application/json', 'LogsAccessCode': os.environ['LOGS_ACCESS_CODE']})
 
         try:
             result.raise_for_status()
